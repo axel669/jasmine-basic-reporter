@@ -71,8 +71,10 @@ class Report {
         rate.fail = 100 - rate.pass;
 
         console.log("");
-        consoleLog.green(`${pass}/${total} (${rate.pass}%) passed`);
-        consoleLog.red(`${fail}/${total} (${rate.fail}%) failed`);
+        consoleLog.green(`${pass}/${total} (${rate.pass.toFixed(2)}%) passed`);
+        if (fail > 0) {
+            consoleLog.red(`${fail}/${total} (${rate.fail.toFixed(2)}%) failed`);
+        }
         if (warn > 0) {
             consoleLog.yellow(`${warn} test(s) without any expectations`);
         }
